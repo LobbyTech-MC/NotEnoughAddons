@@ -1,9 +1,5 @@
 package me.fhoz.notenoughaddons;
 
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,34 +12,33 @@ import java.util.logging.Logger;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import lombok.SneakyThrows;
-import me.fhoz.notenoughaddons.items.AngelBlock;
-import me.fhoz.notenoughaddons.items.backpacks.MinerBackpack;
-import me.fhoz.notenoughaddons.listeners.MinerBackpackListener;
-import me.fhoz.notenoughaddons.utils.NEAItems;
-import me.fhoz.notenoughaddons.utils.Utils;
-import me.fhoz.notenoughaddons.services.UpdateService;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import net.milkbowl.vault.chat.Chat;
-import net.milkbowl.vault.economy.Economy;
-import net.milkbowl.vault.economy.EconomyResponse;
-import net.milkbowl.vault.permission.Permission;
-
 import org.apache.commons.lang.Validate;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.RecipeChoice;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.ShapelessRecipe;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.util.RayTraceResult;
+
+import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
+import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
+import lombok.SneakyThrows;
+import me.fhoz.notenoughaddons.items.AngelBlock;
+import me.fhoz.notenoughaddons.items.backpacks.MinerBackpack;
+import me.fhoz.notenoughaddons.listeners.MinerBackpackListener;
+import me.fhoz.notenoughaddons.services.UpdateService;
+import me.fhoz.notenoughaddons.utils.NEAItems;
+import me.fhoz.notenoughaddons.utils.Utils;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import net.milkbowl.vault.economy.Economy;
 
 public class NotEnoughAddons extends JavaPlugin implements SlimefunAddon {
 
@@ -120,12 +115,12 @@ public class NotEnoughAddons extends JavaPlugin implements SlimefunAddon {
 
 
         if (args.length == 0 && !label.equalsIgnoreCase("repairweapon")) {
-            Utils.send(sender, "&cInvalid command");
+            Utils.send(sender, "&c未知命令");
             return true;
         }
 
         if (!(sender instanceof Player)) {
-            Utils.send(sender, "&cThere are no console commands available");
+            Utils.send(sender, "&c没有可用命令");
             return true;
         }
 
@@ -141,7 +136,7 @@ public class NotEnoughAddons extends JavaPlugin implements SlimefunAddon {
                 return true;
             case "VERSION":
             case "V":
-                Utils.send(p, "&eThe current version is " + this.getPluginVersion());
+                Utils.send(p, "&e当前插件版本为： " + this.getPluginVersion());
                 return true;
         }
 
@@ -150,7 +145,7 @@ public class NotEnoughAddons extends JavaPlugin implements SlimefunAddon {
                 case "ADDINFO":
 
                     if (args.length != 3) {
-                        Utils.send(p, "&cPlease specify the key and the data");
+                        Utils.send(p, "&c请指定键值和数据");
 
                     } else {
                         RayTraceResult rayResult = p.rayTraceBlocks(5d);
@@ -158,10 +153,10 @@ public class NotEnoughAddons extends JavaPlugin implements SlimefunAddon {
                                 && BlockStorage.hasBlockInfo(rayResult.getHitBlock())) {
 
                             BlockStorage.addBlockInfo(rayResult.getHitBlock(), args[1], args[2]);
-                            Utils.send(p, "&aInfo has been added.");
+                            Utils.send(p, "&a已设置信息");
 
                         } else {
-                            Utils.send(p, "&cYou must be looking at a Slimefun block");
+                            Utils.send(p, "&c你必须看向一个粘液科技方块");
                         }
                     }
                     return true;
@@ -169,7 +164,7 @@ public class NotEnoughAddons extends JavaPlugin implements SlimefunAddon {
                     saveAllPlayers();
                     return true;
                 case "GETLATEST":
-                    Utils.send(p, "&eThe latest version is " + UpdateService.getLatestVersion());
+                    Utils.send(p, "&e最新版本是 " + UpdateService.getLatestVersion());
                     return true;
                 case "DOWNLOAD":
                     if (UpdateService.getLatestVersion() <= Integer.parseInt(this.getPluginVersion())) {
@@ -185,7 +180,7 @@ public class NotEnoughAddons extends JavaPlugin implements SlimefunAddon {
                 }
         }
 
-        Utils.send(p, "&cCommand not found");
+        Utils.send(p, "&c找不到此命令");
         return false;
     }
 

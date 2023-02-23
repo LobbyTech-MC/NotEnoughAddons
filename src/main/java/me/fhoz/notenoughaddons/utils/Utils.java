@@ -66,11 +66,11 @@ public final class Utils {
     }
 
     public static void send(CommandSender p, String message) {
-        p.sendMessage(color("&2&n&lN&r&aot&2&l&nE&r&anough&2&l&nA&r&addons &r&7> &r" + message));
+    	p.sendMessage(color("&2&n&l多&a彩&2&l科&r&a技 &r&7> &r" + message));
     }
 
     public static String multiBlockWarning() {
-        return "&cThis is a Multiblock machine!";
+        return "&c这是一个多方块结构机器!";
     }
 
     public static ItemStack buildNonInteractable(Material material, @Nullable String name, @Nullable String... lore) {
