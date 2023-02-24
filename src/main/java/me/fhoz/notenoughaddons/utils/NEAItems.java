@@ -21,7 +21,7 @@ public class NEAItems {
     }
 
     // Machines
-    public static final SlimefunItemStack BUDGET_DUST_FABRICATOR = new SlimefunItemStack("BUDGET_DUST_FABRICATOR",
+    public static final SlimefunItemStack BUDGET_DUST_FABRICATOR_NEA = new SlimefunItemStack("BUDGET_DUST_FABRICATOR_NEA",
         Material.CRACKED_STONE_BRICKS,
         "&6经济型矿粉制造机",
         "",

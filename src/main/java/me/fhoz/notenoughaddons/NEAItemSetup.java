@@ -39,7 +39,7 @@ public final class NEAItemSetup {
         public static void setup(@Nonnull NotEnoughAddons plugin) {
                 
                 // Machines
-                new BudgetDustFabricator(machines, NEAItems.BUDGET_DUST_FABRICATOR,
+                new BudgetDustFabricator(machines, NEAItems.BUDGET_DUST_FABRICATOR_NEA,
                         RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
                         new ItemStack(Material.GRINDSTONE), new ItemStack(Material.GRINDSTONE), new ItemStack(Material.GRINDSTONE),
                         SlimefunItems.GOLD_PAN, new ItemStack(Material.DIAMOND), SlimefunItems.GOLD_PAN,
