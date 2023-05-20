@@ -55,11 +55,11 @@ public class NotEnoughAddons extends JavaPlugin implements SlimefunAddon {
     @Override
     public void onEnable() {
         instance = this;
-        log = instance.getLogger();
+        setLog(instance.getLogger());
         saveDefaultConfig();
         // Read something from your config.yml
         Config cfg = new Config(this);
-        new Thread(updateService::start, "NotEnoughAddons").start();
+        //new Thread(updateService::start, "NotEnoughAddons").start();
 
 
         // Register ACT Recipes
@@ -231,4 +231,20 @@ public class NotEnoughAddons extends JavaPlugin implements SlimefunAddon {
 
         return instance.getServer().getScheduler().runTask(getInstance(), runnable);
     }
+
+	public static Logger getLog() {
+		return log;
+	}
+
+	public static void setLog(Logger log) {
+		NotEnoughAddons.log = log;
+	}
+
+	public static Economy getEcon() {
+		return econ;
+	}
+
+	public static void setEcon(Economy econ) {
+		NotEnoughAddons.econ = econ;
+	}
 }
