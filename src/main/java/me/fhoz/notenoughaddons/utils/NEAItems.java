@@ -7,6 +7,7 @@ import io.github.bakedlibs.dough.items.CustomItemStack;
 import io.github.bakedlibs.dough.skins.PlayerHead;
 import io.github.bakedlibs.dough.skins.PlayerSkin;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.player.PlayerBackpack;
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier;
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType;
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
@@ -67,7 +68,7 @@ public class NEAItems {
         "",
         "&7大小: &e54 (大箱子)",
         "",
-        "&7ID: <ID>",
+        PlayerBackpack.LORE_OWNER,
         "",
         LoreBuilder.RIGHT_CLICK_TO_OPEN
     );
