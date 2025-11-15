@@ -48,11 +48,11 @@ public class MinerBackpackListener implements Listener {
         for (ItemStack item : p.getInventory().getContents()) {
             if (item != null && item.getType() == minerBackpack.getItem().getType() && item.hasItemMeta() && minerBackpack.isItem(item)) {
                 if (SlimefunUtils.canPlayerUseItem(p, minerBackpack.getItem(), true)) {
-                    PlayerProfile.getBackpack(item, backpack -> {
+                	PlayerBackpack.getAsync(item, backpack -> {
                         if (backpack != null && minerBackpack.isItemAllowed(pickedItemStack, null)) {
                             NotEnoughAddons.runSync(() -> addOre(p, item, backpack, pickedItemStack));
                         }
-                    });
+                    }, false);
                 } else {
                     return;
                 }
@@ -78,6 +78,6 @@ public class MinerBackpackListener implements Listener {
             inv.addItem(pickedItemStack);
         }
         
-        backpack.markDirty();
+        //backpack.markDirty();
     }
 }
