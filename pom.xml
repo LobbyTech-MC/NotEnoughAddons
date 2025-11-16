@@ -166,7 +166,7 @@
             <artifactId>Crackshot</artifactId>
             <version>0.98.11</version>
             <scope>system</scope>
-            <systemPath>${basedir}/libs/CrackShot.jar</systemPath>
+            <systemPath>C:\Users\11877\Documents\GitHub\NotEnoughAddons\libs\CrackShot.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.github.MilkBowl</groupId>
