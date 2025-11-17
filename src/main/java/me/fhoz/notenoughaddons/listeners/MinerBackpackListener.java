@@ -53,7 +53,7 @@ public class MinerBackpackListener implements Listener {
                         if (backpack != null && minerBackpack.isItemAllowed(pickedItemStack, null)) {
                             NotEnoughAddons.runSync(() -> addOre(p, item, backpack, pickedItemStack));
                         }
-                    }, false);
+                    }, true);
                 } else {
                     return;
                 }
